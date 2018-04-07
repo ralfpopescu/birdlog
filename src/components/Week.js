@@ -7,11 +7,18 @@ function Week(props) {
   let index = props.firstDay;
 
   let days = [];
-  //first day, range = 6 - first day
-  let range = 6 - props.firstDay;
 
-  for(let i = props.firstDay; i <= props.firstDay + 6; i++){
+  let day = props.firstDay;
+
+  for(let i = 0; i <= 6; i++){
+    //i is the weekday
+    let dead = i < props.firstWeekday;
+    if(dead){
     days[i]= <Day day = {i} dead = {i < props.firstWeekday} today = {props.today}/>
+    } else {
+      days[i]= <Day day = {day} dead = {i < props.firstWeekday} today = {props.today}/>
+      day++;
+    }
   }
 
   return (

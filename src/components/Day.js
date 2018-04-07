@@ -13,9 +13,13 @@ function Day(props) {
   let todayStyle = todayStyle2;
 
   let regStyle = {
-  background: '#3498db',
-  color: 'red'
+  background: '#aaaadb',
+  color: 'white'
   };
+
+  if (props.dead){
+    regStyle.background = '#FFFFFF'
+  }
 
   let deadStyle = {
   background: '#3498db',
@@ -28,7 +32,7 @@ function Day(props) {
     );
 } else {
     return (
-        <button>{props.day}</button>
+        <button style = {regStyle}>{props.day}</button>
     );
   }
 }

@@ -20,7 +20,7 @@ class App extends Component {
     return    (
       <div className="App">
         <Day day = {dayString}/>
-        <Week firstDay = {5} today= {day} firstWeekday = {2}/>
+        <Week firstDay = {1} today= {day} firstWeekday = {3}/>
         <Month dayList = {[1,2,3]} year = {"2"} month = {"3"} today = {day} weekday = {weekday}/>
       </div>
     );
