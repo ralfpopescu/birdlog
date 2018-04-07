@@ -10,7 +10,7 @@ function Year(props) {
     <div>
     <ul>
       {props.months.map(function(listValue){
-        return <li>{listValue}</li>;
+        return <Day day = {listValue} />;
       })}
     </ul>
     </div>

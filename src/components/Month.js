@@ -11,11 +11,11 @@ function Month(props) {
 
   return (
     <div>
-    <ul>
       {dayyy.map(function(listValue){
-        return <li><Day day = {listValue} /></li>;
+        return <div><Day day = {listValue} today = {props.today}/>
+        <Day day = {listValue} today = {props.today}/>
+        </div>
       })}
-    </ul>
     </div>
   );
 }

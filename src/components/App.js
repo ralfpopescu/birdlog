@@ -18,8 +18,8 @@ class App extends Component {
 
     return    (
       <div className="App">
-        <Day day = {dayString} />
-        <Month dayList = {[1,2,3]} year = {"2"} month = {"3"}/>
+        <Day day = {dayString}/>
+        <Month dayList = {[1,2,3]} year = {"2"} month = {"3"} today = {day} weekday = {weekday}/>
       </div>
     );
   }
