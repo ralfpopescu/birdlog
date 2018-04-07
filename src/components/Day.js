@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
 
 function Day(props) {
-  var divStyle = {
+
+  let todayStyle = {
   background: '#3498db',
   color: 'red'
-};
+  };
+
+  let regStyle = {
+  background: '#3498db',
+  color: 'red'
+  };
+
+  let deadStyle = {
+  background: '#3498db',
+  color: 'red'
+  };
 
   if(props.day == props.today){
     return (
-        <button style = {divStyle} >{props.day}!</button>
+        <button style = {todayStyle} >{props.day}!</button>
     );
 } else {
     return (
