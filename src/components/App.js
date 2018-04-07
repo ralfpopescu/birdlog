@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Day from './Day'
 import Month from './Month'
+import Week from './Week'
 import logo from '../logo.svg';
 import '../styles/App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
     return    (
       <div className="App">
         <Day day = {dayString}/>
+        <Week firstDay = {5} today= {day} firstWeekday = {2}/>
         <Month dayList = {[1,2,3]} year = {"2"} month = {"3"} today = {day} weekday = {weekday}/>
       </div>
     );

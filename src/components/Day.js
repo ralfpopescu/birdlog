@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 
 function Day(props) {
 
-  let todayStyle = {
+  let todayStyle2 = {
   background: '#3498db',
   color: 'red'
   };
+
+  todayStyle2.color = 'blue';
+
+
+  let todayStyle = todayStyle2;
 
   let regStyle = {
   background: '#3498db',
