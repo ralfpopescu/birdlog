@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Day from './Day'
 import Month from './Month'
-import Week from './Week'
 import logo from '../logo.svg';
 import '../styles/App.css';
 

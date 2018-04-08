@@ -14,14 +14,14 @@ function Month(props) {
   while(day < 31){
     if(index > 0){
       for(let j = 0; j < index; j++){
-        week[j] = <Day day = {0} dead = {true} today = {props.today}/>
+        week[j] = <Day day = {0} dead = {true} today = {false}/>
       }
     }
     for(let i = index; i <= 6; i++){
       if(day > numberOfDays){
-        week[i] = <Day day = {day} dead = {true} today = {props.today}/>
+        week[i] = <Day day = {0} dead = {true} today = {false}/>
       } else {
-      week[i] = <Day day = {day} today = {props.today}/>
+        week[i] = <Day day = {day} today = {props.today == day}/>
       }
       day = day + 1;
     }
@@ -29,16 +29,6 @@ function Month(props) {
     week = [];
     index = 0;
   }
-  // let weekStartingDay = 1;
-  // let weekStartingWeekday = firstWeekday;
-  //
-  // while (weekStartingDay + 6 <= numberOfDays){
-  //   const w = <Week firstDay = {weekStartingDay} firstWeekday = {weekStartingDay}/>
-  //   weekStartingDay = weekStartingDay + (6 - firstWeekday);
-  //   weekStartingWeekday = 0;
-  // }
-
-
 
   return (
     <div>
