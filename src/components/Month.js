@@ -4,7 +4,7 @@ import Day from './Day'
 function Month(props) {
   let numberOfDays = 30;
   let firstWeekday = new Date('2018-04-01 00:00').getDay();
-  firstWeekday = 2;
+  firstWeekday = props.weekday;
 
   let weeks = [];
   let week = [];
