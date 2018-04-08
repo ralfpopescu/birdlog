@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Day from './Day'
 import Month from './Month'
+import Text from './Text'
+import Button from './Button'
+import StyledDiv from './StyledDiv'
 import logo from '../logo.svg';
 import '../styles/App.css';
 
@@ -14,12 +17,17 @@ class App extends Component {
     var month = d.getMonth();
     var day = d.getDate();
     var year = d.getFullYear();
-    var dayString = weekdays[weekday - 1] + " " + months[month] + " " + day + ", " + year;
+    var dayString = weekdays[weekday] + " " + months[month] + " " + day + ", " + year;
 
     return    (
       <div className="App">
-        {dayString}
-        <Month today = {day} weekday = {weekday}/>
+          <Text text = {dayString}/>
+          <Month today = {day} weekday = {weekday}/>
+        <StyledDiv float = {'center'}>
+          <Button>prev</Button>
+          <Button>back</Button>
+          <Button>next</Button>
+        </StyledDiv>
       </div>
     );
   }

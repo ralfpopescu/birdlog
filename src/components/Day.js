@@ -5,10 +5,12 @@ const fadeIn = keyframes`
   0% {
     opacity: 0;
     padding: 30px 64px;
+    box-shadow: 50px 50px 50px grey;
   }
   100% {
     opacity: 1;
     padding: 15px 32px;
+    box-shadow: 10px 10px 5px grey;
   }
 `;
 
@@ -23,11 +25,17 @@ const Button = styled.button`
   padding: 15px 32px;
   font-family: 'Arial Black';
   animation: ${(props) => {return (.05 * props.day)}}s ${fadeIn} ease-out;
+  box-shadow: 10px 10px 5px grey;
+
+  border-style: solid;
+  border-width: 3px;
+  border-color: #000000;
+  transition: 0.3s ease-in-out;
 
   &:hover {
       position: relative;
-      transform: scale(2);
-      transition: 0.3s ease-out;
+      transform: scale(1.5);
+      cursor: pointer;
     };
 `;
 
