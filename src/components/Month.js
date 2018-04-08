@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Day from './Day'
 
 function Month(props) {
-  let numberOfDays = new Date(props.year, props.month, 0).getDate();
+  let numberOfDays = 30;
   let firstWeekday = new Date('2018-04-01 00:00').getDay();
   firstWeekday = 2;
 
