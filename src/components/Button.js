@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-const RegButton = styled.button`
+const RegButton = styled.button` hello my friend
   background: ${(props) => props.color};
   font-size: 25px;
   font-family: 'Arial Black';

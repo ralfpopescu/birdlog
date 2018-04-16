@@ -16,15 +16,13 @@ const fadeIn = keyframes`
 
 
 const Button = styled.button`
-  background: ${(props) => {if (props.today){return '#ffaadb'}
-                            else if (props.dead){return '#FFFFFF'}
-                            else {return '#aaaadb'}}}
+  background: '#aaaadb';
   border-radius: 2px;
-  color: white;
+  color: black;
   font-size: 40px;
   padding: 15px 32px;
   font-family: 'Arial Black';
-  animation: ${(props) => {return (.05 * props.day)}}s ${fadeIn} ease-out;
+  animation: 1s ease-out;
   box-shadow: 10px 10px 5px grey;
 
   border-style: solid;
@@ -44,8 +42,8 @@ const Button = styled.button`
 }
 `;
 
-const Day = ({ day, dead, today }) => (
-  <Button day = {day} dead = {dead} today = {today}>{day}</Button>
+const MonthButton = ({ month }) => (
+  <Button>{month}</Button>
 )
 
-export default Day
+export default MonthButton
