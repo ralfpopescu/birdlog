@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import Day from './Day'
+import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
-function Month(props) {
+const Month = (props) => {
   let numberOfDays = 30;
   let firstWeekday = new Date('2018-04-01 00:00').getDay();
   firstWeekday = props.weekday;
 
   let weeks = [];
   let week = [];
-  let day = 1;
+  let day = 1
+
   let index = firstWeekday;
+
+  if(props.match.params){
+    index = props.match.params.monthNum
+  }
 
   while(day < 31){
     if(index > 0){

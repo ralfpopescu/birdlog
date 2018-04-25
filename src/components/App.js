@@ -41,7 +41,7 @@ class App extends Component {
 
     const MonthSwitch = () => {
       return <Switch>
-        <Route path='/month' component={currentMonth}/>
+        <Route path='/month/:monthNum' component={Month}/>
       </Switch>
 
     }
@@ -77,7 +77,6 @@ class App extends Component {
           <Text text = {'Sun - - - - - '}/>
           <Text text = {'Sat'}/>
           </div>
-          {currentMonth}
         <StyledDiv float = {'center'}>
           <Button onClick={() => this.handleClick(-1)}>prev</Button>
           <Button>back</Button>
@@ -87,9 +86,6 @@ class App extends Component {
     </HashRouter>
     );
   }
-
-
-
 }
 
 export default App;
