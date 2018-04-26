@@ -42,8 +42,8 @@ const Button = styled.button`
 }
 `;
 
-const MonthButton = ({ month }) => (
-  <Button>{month}</Button>
+const MonthButton = ({ month, ...props }) => (
+  <Button onClick={() => props.click()} >{month}</Button>
 )
 
 export default MonthButton

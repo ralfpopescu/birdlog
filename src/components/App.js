@@ -27,6 +27,14 @@ class App extends Component {
       console.log(d.getDay());
   };
 
+  handleMonthClick(x){
+    this.setState({month: x})
+  }
+
+  handlePrevNextClick(x){
+    this.setState({month: x})
+  }
+
   render() {
     var d = new Date();
     var months = ["January", "February", "March", "April", "May", "June", "July", "August",
@@ -37,49 +45,42 @@ class App extends Component {
 
     const currentMonth = () => <Month today = {day} weekday = {this.state.weekday}/>;
 
-    const HELLO = () => <div>HELLO</div>
+    const MonthList = () => (<div>
+      <div>
+      <Link to='/month/1'><MonthButton month = "January" click={() => this.handleMonthClick(1)} ></MonthButton></Link>
+      <Link to='/month/2'><MonthButton month = "February" click={() => this.handleMonthClick(2)}></MonthButton></Link>
+      <Link to='/month/3'><MonthButton month = "March" click={() => this.handleMonthClick(3)}></MonthButton></Link>
+      <Link to='/month/4'><MonthButton month = "April" click={() => this.handleMonthClick(4)}></MonthButton></Link>
+      </div>
+      <div>
+      <Link to='/month/5'><MonthButton month = "May" click={() => this.handleMonthClick(5)}></MonthButton></Link>
+      <Link to='/month/6'><MonthButton month = "June" click={() => this.handleMonthClick(6)}></MonthButton></Link>
+      <Link to='/month/7'><MonthButton month = "July" click={() => this.handleMonthClick(7)}></MonthButton></Link>
+      <Link to='/month/8'><MonthButton month = "August" click={() => this.handleMonthClick(8)}></MonthButton></Link>
+      </div>
+      <div>
+      <Link to='/month/9'><MonthButton month = "September" click={() => this.handleMonthClick(9)}></MonthButton></Link>
+      <Link to='/month/10'><MonthButton month = "October" click={() => this.handleMonthClick(10)}></MonthButton></Link>
+      <Link to='/month/11'><MonthButton month = "November" click={() => this.handleMonthClick(11)}></MonthButton></Link>
+      <Link to='/month/12'><MonthButton month = "December" click={() => this.handleMonthClick(12)}></MonthButton></Link>
+      </div>
+    </div>)
 
     const MonthSwitch = () => {
       return <Switch>
         <Route path='/month/:monthNum' component={Month}/>
+        <Route path='/' component={MonthList}/>
       </Switch>
 
     }
 
-    const monthList = <div>
-      <div>
-      <MonthButton month = "January"></MonthButton>
-      <MonthButton month = "February"></MonthButton>
-      <MonthButton month = "March"></MonthButton>
-      <MonthButton month = "April"></MonthButton>
-      </div>
-      <div>
-      <MonthButton month = "May"></MonthButton>
-      <MonthButton month = "June"></MonthButton>
-      <MonthButton month = "July"></MonthButton>
-      <MonthButton month = "August"></MonthButton>
-      </div>
-      <div>
-      <MonthButton month = "September"></MonthButton>
-      <MonthButton month = "October"></MonthButton>
-      <MonthButton month = "November"></MonthButton>
-      <MonthButton month = "December"></MonthButton>
-      </div>
-    </div>
-
     return (
     <HashRouter>
       <div className="App">
-          <MonthSwitch />
-          {monthList}
-          <Text text = {months[this.state.month]}/>
-          <div>
-          <Text text = {'Sun - - - - - '}/>
-          <Text text = {'Sat'}/>
-          </div>
+        <MonthSwitch />
         <StyledDiv float = {'center'}>
           <Button onClick={() => this.handleClick(-1)}>prev</Button>
-          <Button>back</Button>
+          <Link to='/'><Button>back</Button></Link>
           <Button onClick={() => this.handleClick(1)} >next</Button>
         </StyledDiv>
       </div>

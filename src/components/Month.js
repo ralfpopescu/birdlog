@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
 import Day from './Day'
+import Text from './Text'
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
+let months = ["January", "February", "March", "April", "May", "June", "July", "August",
+"September","October", "November", "December"]
+
+const buildDate = (monthNum) => {
+  let year = 2018
+  let m = monthNum.toString()
+  if(monthNum < 10){
+    m = "0" + m
+  }
+  return year.toString() + "-" + m + "-" + "01" + " 00:00"
+}
+
 const Month = (props) => {
-  let numberOfDays = 30;
-  let firstWeekday = new Date('2018-04-01 00:00').getDay();
-  firstWeekday = props.weekday;
+  let monthFirstDayDate = new Date(buildDate(props.match.params.monthNum))
+
+  let numberOfDays = new Date(2018, props.match.params.monthNum, 0).getDate();
+  let firstWeekday = monthFirstDayDate.getDay();;
 
   let weeks = [];
   let week = [];
   let day = 1
 
   let index = firstWeekday;
-
-  if(props.match.params){
-    index = props.match.params.monthNum
-  }
 
   while(day < 31){
     if(index > 0){
@@ -36,15 +46,29 @@ const Month = (props) => {
     index = 0;
   }
 
-  return (
-    <div>
-      {weeks.map(function(week){
-        return <div>{week.map(function(listValue){
-              return listValue;
-            })}
+  const MonthTitle = () => (<Text text = {months[props.match.params.monthNum - 1]} />)
+
+  const WeekBar = () => <div>
+  <Text text = {'Sun - - - - - '}/>
+  <Text text = {'Sat'}/>
+  </div>
+
+  const MonthCalender = () => <div>
+    {weeks.map(function(week){
+      return <div>{week.map(function(listValue){
+            return listValue;
+          })}
         </div>
       })}
     </div>
+
+  return (
+    <div>
+      <MonthTitle />
+      <WeekBar />
+      <MonthCalender />
+    </div>
+
   );
 }
 
