@@ -21,6 +21,9 @@ const Month = (props) => {
   let numberOfDays = new Date(2018, props.match.params.monthNum, 0).getDate();
   let firstWeekday = monthFirstDayDate.getDay();;
 
+  let today = new Date().getDate();
+  let mm = new Date().getMonth()+1; //January is 0!
+
   let weeks = [];
   let week = [];
   let day = 1
@@ -30,14 +33,14 @@ const Month = (props) => {
   while(day < 31){
     if(index > 0){
       for(let j = 0; j < index; j++){
-        week[j] = <Day day = {0} dead = {true} today = {false}/>
+        week[j] = <Day day = {0} dead = {true} today = {false} weekend = {j == 0 || j == 6}/>
       }
     }
     for(let i = index; i <= 6; i++){
       if(day > numberOfDays){
-        week[i] = <Day day = {0} dead = {true} today = {false}/>
+        week[i] = <Day day = {0} dead = {true} today = {false} weekend = {i == 0 || i == 6}/>
       } else {
-        week[i] = <Day day = {day} today = {props.today == day}/>
+        week[i] = <Day day = {day} today = {today == day && mm == props.match.params.monthNum} weekend = {i == 0 || i == 6}/>
       }
       day = day + 1;
     }
@@ -71,8 +74,5 @@ const Month = (props) => {
 
   );
 }
-
-
-
 
 export default Month

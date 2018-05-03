@@ -36,14 +36,7 @@ class App extends Component {
   }
 
   render() {
-    var d = new Date();
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August",
-    "September","October", "November", "December"]
 
-    var day = d.getDate();
-    var year = d.getFullYear();
-
-    const currentMonth = () => <Month today = {day} weekday = {this.state.weekday}/>;
 
     const MonthList = () => (<div>
       <div>
@@ -66,10 +59,25 @@ class App extends Component {
       </div>
     </div>)
 
+
+    const PrevNext = () => {
+      return <StyledDiv float = {'center'}>
+        <Button onClick={() => this.handleClick(-1)}>prev</Button>
+        <Link to='/'><Button>back</Button></Link>
+        <Button onClick={() => this.handleClick(1)} >next</Button>
+      </StyledDiv>
+    }
+
     const MonthSwitch = () => {
       return <Switch>
         <Route path='/month/:monthNum' component={Month}/>
         <Route path='/' component={MonthList}/>
+      </Switch>
+
+    }
+    const PrevNextSwitch = () => {
+      return <Switch>
+        <Route path='/month' component={PrevNext}/>
       </Switch>
 
     }
@@ -78,11 +86,7 @@ class App extends Component {
     <HashRouter>
       <div className="App">
         <MonthSwitch />
-        <StyledDiv float = {'center'}>
-          <Button onClick={() => this.handleClick(-1)}>prev</Button>
-          <Link to='/'><Button>back</Button></Link>
-          <Button onClick={() => this.handleClick(1)} >next</Button>
-        </StyledDiv>
+        <PrevNextSwitch />
       </div>
     </HashRouter>
     );

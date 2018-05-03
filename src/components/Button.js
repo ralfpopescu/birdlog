@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const RegButton = styled.button` hello my friend
   background: ${(props) => props.color};
-  font-size: 25px;
+  font-size: 15px;
   font-family: 'Arial Black';
   text-transform: uppercase;
   transition: 0.1s ease-in-out;

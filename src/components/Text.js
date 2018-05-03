@@ -8,7 +8,7 @@ const StyledText = styled.text`
 
 `;
 
-const Text = ({ text }) => (
+const Text = ({ text, size }) => (
   <StyledText>{text}</StyledText>
 )
 
