@@ -2,12 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-const RegButton = styled.button` hello my friend
+const RegButton = styled.button`
   background: ${(props) => props.color};
   font-size: 15px;
   font-family: 'Arial Black';
   text-transform: uppercase;
   transition: 0.1s ease-in-out;
+  border-radius: 10px;
+  color: white;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  background: #fb9fa4;
 
   &:hover {
       position: relative;

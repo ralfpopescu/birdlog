@@ -18,20 +18,20 @@ const fadeIn = keyframes`
 
 
 const Button = styled.button`
-  background: ${(props) => {if (props.today){return '#ffaadb'}
-                            else if (props.dead){return '#AA1FFF'}
-                            else {return '#aaaadb'}}}
-  border-radius: 2px;
+  background: ${(props) => {if (props.today){return '#fb958b'}
+                            else if (props.weekend){return '#ff9e99'}
+                            else {return '#fb9fa4'}}}
+  border-radius: 10px;
   color: white;
   font-size: 20px;
   padding: 10px 20px;
   font-family: 'Arial Black';
   animation: ${(props) => {return (.05 * props.day)}}s ${fadeIn} ease-out;
   box-shadow: 10px 10px 5px grey;
-  opacity: ${(props) => {if (props.weekend){return .5}}};
+  opacity: ${(props) => {if (props.dead){return .5}}};
   border-style: solid;
   border-width: 3px;
-  border-color: #000000;
+  border-color: white;
   transition: 0.3s ease-in-out;
 
   &:hover {

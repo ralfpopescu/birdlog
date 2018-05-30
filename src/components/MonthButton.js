@@ -27,9 +27,11 @@ const Button = styled.button`
 
   border-style: solid;
   border-width: 3px;
-  border-color: #000000;
   transition: 0.3s ease-in-out;
   animation: ${(props) => {return (1)}}s ${fadeIn} ease-out;
+  color: white;
+  border-radius: 10px;
+  background: #fb9fa4;
 
   &:hover {
       position: relative;
