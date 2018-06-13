@@ -5,11 +5,11 @@ import Text from './Text'
 import Button from './Button'
 import StyledDiv from './StyledDiv'
 import MonthButton from './MonthButton'
-import logo from '../logo.svg';
 import '../styles/App.css';
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
 import { createStore } from 'redux';
+import { connect } from 'react-redux'
 
 class App extends Component {
 
@@ -68,9 +68,9 @@ class App extends Component {
 
     const PrevNext = () => {
       return <StyledDiv float = {'center'}>
-        <Button onClick={() => this.handleClick(-1)}>prev</Button>
+        <Button onClick={decrementMonth}>prev</Button>
         <Link to='/'><Button>back</Button></Link>
-        <Button onClick={() => this.handleClick(1)} >next</Button>
+        <Button onClick={incrementMonth} >next</Button>
       </StyledDiv>
     }
 
@@ -100,4 +100,25 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { month: state.month }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+      decrementMonth : () => dispatch({
+        type : 'DECREMENT_MONTH'
+      }),
+      incrementMonth : () => dispatch({
+        type : 'INCREMENT_MONTH'
+      }),
+      setMonth : () => dispatch({
+        type : 'SET_MONTH'
+      })
+    }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

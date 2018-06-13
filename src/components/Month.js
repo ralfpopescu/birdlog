@@ -3,6 +3,7 @@ import Day from './Day'
 import Text from './Text'
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 import { months } from '../services/dataModels'
+import { connect } from 'react-redux'
 
 const buildDate = (monthNum) => {
   let year = 2018
@@ -14,9 +15,9 @@ const buildDate = (monthNum) => {
 }
 
 const Month = (props) => {
-  let monthFirstDayDate = new Date(buildDate(props.match.params.monthNum))
+  let monthFirstDayDate = new Date(buildDate(props.match.params.monthNum)) //builds date to be accurate
 
-  let numberOfDays = new Date(2018, props.match.params.monthNum, 0).getDate();
+  let numberOfDays = new Date(2018, props.match.params.monthNum, 0).getDate(); //gets number of days in
   let firstWeekday = monthFirstDayDate.getDay();;
 
   let today = new Date().getDate();
@@ -73,4 +74,15 @@ const Month = (props) => {
   );
 }
 
-export default Month
+const mapStateToProps = state => {
+  //return { monthNum: state.month }
+}
+
+const mapDispatchToProps = dispatch => {
+
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Month)
