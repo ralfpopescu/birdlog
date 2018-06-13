@@ -5,6 +5,7 @@ import Text from './Text'
 import Button from './Button'
 import StyledDiv from './StyledDiv'
 import MonthButton from './MonthButton'
+import MonthList from './MonthList'
 import '../styles/App.css';
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
@@ -15,10 +16,9 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    var x = new Date();
-    let year = x.getFullYear();
-    var y = new Date(year, x.getMonth(),1,1,1,1,1);
-    console.log(y.toString())
+    const x = new Date();
+    const year = x.getFullYear();
+    const y = new Date(year, x.getMonth(),1,1,1,1,1);
     this.state = {weekday: y.getDay(), month: x.getMonth()};
     this.handleClick = this.handleClick.bind(this);
   }
@@ -68,9 +68,9 @@ class App extends Component {
 
     const PrevNext = () => {
       return <StyledDiv float = {'center'}>
-        <Button onClick={decrementMonth}>prev</Button>
+        <Button onClick={this.props.decrementMonth}>prev</Button>
         <Link to='/'><Button>back</Button></Link>
-        <Button onClick={incrementMonth} >next</Button>
+        <Button onClick={this.props.incrementMonth} >next</Button>
       </StyledDiv>
     }
 
@@ -100,8 +100,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { month: state.month }
+const mapStateToProps = (state) => {
+  //return { month: state.month }
 }
 
 const mapDispatchToProps = dispatch => {
