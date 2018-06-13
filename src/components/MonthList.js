@@ -7,27 +7,30 @@ const monthButtons = []
 let monthRow = []
 const numberOfRows = 3
 
-const createMonths = ({ onClick }) => {
-  let i = 1
-  while(i <= 12) {
-    for(let j = 0; j = 12/numberOfRows; j++){
+const MonthList = ({ onClick }) => {
+  let i = 0
+  while(i < 12) {
+    for(let j = 0; j < 12/numberOfRows; j++){
       let link = `/month/${i}`
-      let linkComp = <Link to={this.link}><MonthButton month = {months[i]} click={onClick}></MonthButton></Link>
+      let linkComp = <Link to={link}><MonthButton month = {months[i]} click={onClick}></MonthButton></Link>
+      console.log(linkComp)
       monthRow.push(linkComp)
       i = i + 1
       }
       monthButtons.push(monthRow)
       monthRow = []
     }
+    const ConstructedList = () => <div>
+      {monthButtons.map(function(monthRow){
+        return <div>{monthRow.map(function(listValue){
+              return listValue;
+            })}
+          </div>
+        })}
+      </div>
+
+    return <ConstructedList />
   }
 
-  const MonthList = () => <div>
-    {monthButtons.map(function(monthRow){
-      return <div>{monthRow.map(function(listValue){
-            return listValue;
-          })}
-        </div>
-      })}
-    </div>
 
   export default MonthList

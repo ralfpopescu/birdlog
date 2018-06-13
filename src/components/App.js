@@ -38,7 +38,9 @@ class App extends Component {
   }
 
   render() {
-    const MonthList = () => (<div>
+    const MonthList2 = () => <MonthList onClick = {this.handleMonthClick} />
+
+    const MonthList3 = () => (<div>
       <div>
       <Link to='/month/1'><MonthButton month = "JANUARY" click={() => this.handleMonthClick(1)} ></MonthButton></Link>
       <Link to='/month/2'><MonthButton month = "FEBRUARY" click={() => this.handleMonthClick(2)}></MonthButton></Link>
@@ -77,7 +79,7 @@ class App extends Component {
     const MonthSwitch = () => {
       return <Switch>
         <Route path='/month/:monthNum' component={Month}/>
-        <Route path='/' component={MonthList}/>
+        <Route path='/' component={MonthList2}/>
       </Switch>
 
     }
