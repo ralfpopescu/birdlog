@@ -5,14 +5,14 @@ const fadeIn = keyframes`
   0% {
     opacity: 0;
     padding: 20px 40px;
-    box-shadow: 50px 50px 50px grey;
+    box-shadow: 50px 50px 50px white;
   }
   100% {
     opacity: ${(props) => {if (props.weekend)
                               {return .5}
                           else {return 1}} };;
     padding: 10px 20px;
-    box-shadow: 10px 10px 5px grey;
+    box-shadow: 10px 10px 5px white;
   }
 `;
 
@@ -20,14 +20,14 @@ const fadeIn = keyframes`
 const Button = styled.button`
   background: ${(props) => {if (props.today){return '#fb958b'}
                             else if (props.weekend){return '#ff9e99'}
-                            else {return '#fb9fa4'}}}
-  border-radius: 10px;
+                            else {return '#ffd4b3'}}}
+  border-radius: 7px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px 20px;
-  font-family: 'Arial Black';
+  font-family: 'Courier New';
   animation: ${(props) => {return (.05 * props.day)}}s ${fadeIn} ease-out;
-  box-shadow: 10px 10px 5px grey;
+  box-shadow: 10px 10px 5px #FFFFFF;
   opacity: ${(props) => {if (props.dead){return .5}}};
   border-style: solid;
   border-width: 3px;

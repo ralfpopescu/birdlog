@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import Day from './Day'
 import Text from './Text'
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
-
-let months = ["January", "February", "March", "April", "May", "June", "July", "August",
-"September","October", "November", "December"]
+import { months } from '../services/dataModels'
 
 const buildDate = (monthNum) => {
   let year = 2018
@@ -33,12 +31,12 @@ const Month = (props) => {
   while(day < 31){
     if(index > 0){
       for(let j = 0; j < index; j++){
-        week[j] = <Day day = {0} dead = {true} today = {false} weekend = {j == 0 || j == 6}/>
+        week[j] = <Day day = {"*"} dead = {true} today = {false} weekend = {j == 0 || j == 6}/>
       }
     }
     for(let i = index; i <= 6; i++){
       if(day > numberOfDays){
-        week[i] = <Day day = {0} dead = {true} today = {false} weekend = {i == 0 || i == 6}/>
+        week[i] = <Day day = {"*"} dead = {true} today = {false} weekend = {i == 0 || i == 6}/>
       } else {
         week[i] = <Day day = {day} today = {today == day && mm == props.match.params.monthNum} weekend = {i == 0 || i == 6}/>
       }

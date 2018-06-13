@@ -9,6 +9,8 @@ import logo from '../logo.svg';
 import '../styles/App.css';
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
+import { createStore } from 'redux';
+
 class App extends Component {
 
   constructor(props) {
@@ -36,29 +38,33 @@ class App extends Component {
   }
 
   render() {
-
-
     const MonthList = () => (<div>
       <div>
-      <Link to='/month/1'><MonthButton month = "January" click={() => this.handleMonthClick(1)} ></MonthButton></Link>
-      <Link to='/month/2'><MonthButton month = "February" click={() => this.handleMonthClick(2)}></MonthButton></Link>
-      <Link to='/month/3'><MonthButton month = "March" click={() => this.handleMonthClick(3)}></MonthButton></Link>
-      <Link to='/month/4'><MonthButton month = "April" click={() => this.handleMonthClick(4)}></MonthButton></Link>
+      <Link to='/month/1'><MonthButton month = "JANUARY" click={() => this.handleMonthClick(1)} ></MonthButton></Link>
+      <Link to='/month/2'><MonthButton month = "FEBRUARY" click={() => this.handleMonthClick(2)}></MonthButton></Link>
+      <Link to='/month/3'><MonthButton month = "MARCH" click={() => this.handleMonthClick(3)}></MonthButton></Link>
+      <Link to='/month/4'><MonthButton month = "APRIL" click={() => this.handleMonthClick(4)}></MonthButton></Link>
       </div>
       <div>
-      <Link to='/month/5'><MonthButton month = "May" click={() => this.handleMonthClick(5)}></MonthButton></Link>
-      <Link to='/month/6'><MonthButton month = "June" click={() => this.handleMonthClick(6)}></MonthButton></Link>
-      <Link to='/month/7'><MonthButton month = "July" click={() => this.handleMonthClick(7)}></MonthButton></Link>
-      <Link to='/month/8'><MonthButton month = "August" click={() => this.handleMonthClick(8)}></MonthButton></Link>
+      <Link to='/month/5'><MonthButton month = "MAY" click={() => this.handleMonthClick(5)}></MonthButton></Link>
+      <Link to='/month/6'><MonthButton month = "JUNE" click={() => this.handleMonthClick(6)}></MonthButton></Link>
+      <Link to='/month/7'><MonthButton month = "JULY" click={() => this.handleMonthClick(7)}></MonthButton></Link>
+      <Link to='/month/8'><MonthButton month = "AUGUST" click={() => this.handleMonthClick(8)}></MonthButton></Link>
       </div>
       <div>
-      <Link to='/month/9'><MonthButton month = "September" click={() => this.handleMonthClick(9)}></MonthButton></Link>
-      <Link to='/month/10'><MonthButton month = "October" click={() => this.handleMonthClick(10)}></MonthButton></Link>
-      <Link to='/month/11'><MonthButton month = "November" click={() => this.handleMonthClick(11)}></MonthButton></Link>
-      <Link to='/month/12'><MonthButton month = "December" click={() => this.handleMonthClick(12)}></MonthButton></Link>
+      <Link to='/month/9'><MonthButton month = "SEPTEMBER" click={() => this.handleMonthClick(9)}></MonthButton></Link>
+      <Link to='/month/10'><MonthButton month = "OCTOBER" click={() => this.handleMonthClick(10)}></MonthButton></Link>
+      <Link to='/month/11'><MonthButton month = "NOVEMBER" click={() => this.handleMonthClick(11)}></MonthButton></Link>
+      <Link to='/month/12'><MonthButton month = "DECEMBER" click={() => this.handleMonthClick(12)}></MonthButton></Link>
       </div>
     </div>)
 
+    const BirdLog = () => {
+      const birdLog = () => { return <Text text = {"BIRDLOG"}></Text>}
+      return <Switch>
+        <Route path='/' component={birdLog}/>
+      </Switch>
+    }
 
     const PrevNext = () => {
       return <StyledDiv float = {'center'}>
@@ -85,6 +91,7 @@ class App extends Component {
     return (
     <HashRouter>
       <div className="App">
+        <BirdLog />
         <MonthSwitch />
         <PrevNextSwitch />
       </div>

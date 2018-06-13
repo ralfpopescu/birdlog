@@ -11,16 +11,16 @@ const fadeIn = keyframes`
 `;
 
 const StyledText = styled.text`
-  font-size: 30px;
-  font-family: 'Arial Black';
+  font-size: ${(props) => props.size}px;
+  font-family: 'Courier New';
   text-transform: uppercase;
   color: white;
   animation: 1s ${fadeIn} ease-out;
 
 `;
 
-const Text = ({ text, size }) => (
-  <StyledText>{text}</StyledText>
+const Text = ({ text, size=30 }) => (
+  <StyledText size={size}>{text}</StyledText>
 )
 
 export default Text
