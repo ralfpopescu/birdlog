@@ -29,7 +29,7 @@ class App extends Component {
       console.log(d.getDay());
   };
 
-  handleMonthClick(x){
+  handleMonthClick = (x) => {
     this.setState({month: x})
   }
 
@@ -38,28 +38,7 @@ class App extends Component {
   }
 
   render() {
-    const MonthList2 = () => <MonthList onClick = {this.handleMonthClick} />
-
-    const MonthList3 = () => (<div>
-      <div>
-      <Link to='/month/1'><MonthButton month = "JANUARY" click={() => this.handleMonthClick(1)} ></MonthButton></Link>
-      <Link to='/month/2'><MonthButton month = "FEBRUARY" click={() => this.handleMonthClick(2)}></MonthButton></Link>
-      <Link to='/month/3'><MonthButton month = "MARCH" click={() => this.handleMonthClick(3)}></MonthButton></Link>
-      <Link to='/month/4'><MonthButton month = "APRIL" click={() => this.handleMonthClick(4)}></MonthButton></Link>
-      </div>
-      <div>
-      <Link to='/month/5'><MonthButton month = "MAY" click={() => this.handleMonthClick(5)}></MonthButton></Link>
-      <Link to='/month/6'><MonthButton month = "JUNE" click={() => this.handleMonthClick(6)}></MonthButton></Link>
-      <Link to='/month/7'><MonthButton month = "JULY" click={() => this.handleMonthClick(7)}></MonthButton></Link>
-      <Link to='/month/8'><MonthButton month = "AUGUST" click={() => this.handleMonthClick(8)}></MonthButton></Link>
-      </div>
-      <div>
-      <Link to='/month/9'><MonthButton month = "SEPTEMBER" click={() => this.handleMonthClick(9)}></MonthButton></Link>
-      <Link to='/month/10'><MonthButton month = "OCTOBER" click={() => this.handleMonthClick(10)}></MonthButton></Link>
-      <Link to='/month/11'><MonthButton month = "NOVEMBER" click={() => this.handleMonthClick(11)}></MonthButton></Link>
-      <Link to='/month/12'><MonthButton month = "DECEMBER" click={() => this.handleMonthClick(12)}></MonthButton></Link>
-      </div>
-    </div>)
+    const ListOfMonths = () => <MonthList onClick = {this.handleMonthClick} />
 
     const BirdLog = () => {
       const birdLog = () => { return <Text text = {"BIRDLOG"}></Text>}
@@ -79,7 +58,7 @@ class App extends Component {
     const MonthSwitch = () => {
       return <Switch>
         <Route path='/month/:monthNum' component={Month}/>
-        <Route path='/' component={MonthList2}/>
+        <Route path='/' component={ListOfMonths}/>
       </Switch>
 
     }
