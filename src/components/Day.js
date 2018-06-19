@@ -20,9 +20,10 @@ const fadeIn = keyframes`
 const Button = styled.button`
   background: ${(props) => {if (props.today){return '#fb958b'}
                             else if (props.weekend){return '#ff9e99'}
-                            else {return '#ffd4b3'}}}
+                            else {return '#ffffff'}}}
   border-radius: 7px;
-  color: white;
+  border-color: #ffd4b3;
+  color: #ffd4b3;
   font-size: 15px;
   padding: 10px 20px;
   font-family: 'Courier New';
@@ -31,7 +32,7 @@ const Button = styled.button`
   opacity: ${(props) => {if (props.dead){return .5}}};
   border-style: solid;
   border-width: 3px;
-  border-color: white;
+  outline: none;
   transition: 0.3s ease-in-out;
 
   &:hover {

@@ -45,7 +45,7 @@ const Button = styled.button`
 `;
 
 const MonthButton = ({ month, ...props }) => (
-  <Button onClick={() => props.click()} month = {month}>{month}</Button>
+  <Button onClick={() => props.click} month = {month}>{month}</Button>
 )
 
 export default MonthButton

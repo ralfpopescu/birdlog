@@ -14,6 +14,7 @@ const RegButton = styled.button`
   border-width: 3px;
   border-color: white;
   background: #fb9fa4;
+  outline: none;
 
   &:hover {
       position: relative;

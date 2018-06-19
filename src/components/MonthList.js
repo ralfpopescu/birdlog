@@ -10,11 +10,11 @@ const MonthList = ({ onClick }) => {
   const monthButtons = []
   let monthRow = []
   let i = 0
-  
+
   while(i < 12) {
     for(let j = 0; j < 12/numberOfRows; j++){
-      let link = `/month/${i}`
-      let linkComp = <Link to={link}><MonthButton month = {months[i]} click={onClick}></MonthButton></Link>
+      let link = `/month/${i + 1}`
+      let linkComp = <Link to={link}><MonthButton month = {months[i]} click={(i) => onClick(i)}></MonthButton></Link>
       monthRow.push(linkComp)
       i = i + 1
       }

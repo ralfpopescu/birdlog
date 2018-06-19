@@ -39,7 +39,10 @@ const Month = (props) => {
       if(day > numberOfDays){
         week[i] = <Day day = {"*"} dead = {true} today = {false} weekend = {i == 0 || i == 6}/>
       } else {
-        week[i] = <Day day = {day} today = {today == day && mm == props.match.params.monthNum} weekend = {i == 0 || i == 6}/>
+        const dayLink = `/month/${props.match.params.monthNum}/day/${day}`
+        week[i] = <Link to={dayLink}>
+        <Day day = {day} today = {today == day && mm == props.match.params.monthNum} weekend = {i == 0 || i == 6}/>
+      </Link>
       }
       day = day + 1;
     }
@@ -51,8 +54,8 @@ const Month = (props) => {
   const MonthTitle = () => (<Text text = {months[props.match.params.monthNum - 1]} />)
 
   const WeekBar = () => <div>
-  <Text text = {'Sun - - - - - '}/>
-  <Text text = {'Sat'}/>
+  <Text text = {'Sun - - - - - '} size={20}/>
+  <Text text = {'Sat'} size={20}/>
   </div>
 
   const MonthCalender = () => <div>
