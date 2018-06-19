@@ -6,7 +6,8 @@ import { months } from '../services/dataModels'
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
 const Note = (props) => {
-  const Title = <Text text = {months[props.match.params.monthNum - 1]} />
+  const dateText = `${months[props.match.params.monthNum - 1]} ${props.match.params.dayNum}`
+  const Title = () => <Text text = {dateText} />
 
   const TextArea = styled.textarea`
     display: inline-block;
@@ -22,7 +23,7 @@ const Note = (props) => {
     color: #aad4aa;`;
 
   return <React.Fragment><div><Title /></div>
-  <div><TextArea /></div> </React.Fragment>
+  <div><TextArea /></div></React.Fragment>
 }
 
 export default Note

@@ -77,15 +77,4 @@ const Month = (props) => {
   );
 }
 
-const mapStateToProps = state => {
-  //return { monthNum: state.month }
-}
-
-const mapDispatchToProps = dispatch => {
-
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Month)
+export default Month

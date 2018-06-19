@@ -51,8 +51,6 @@ class Log extends Component {
   render() {
     const ListOfMonths = () => <MonthList onClick = {this.handleMonthClick} />
 
-    const JournalEntry = () => <StyledDiv float = {'center'}><Note /></StyledDiv>
-
     const BirdLog = () => {
       const birdLog = () => { return <Text text = {"BIRDLOG"}></Text>}
       return <Switch>
@@ -88,7 +86,7 @@ class Log extends Component {
 
     const MonthSwitch = () => {
       return <Switch>
-        <Route path='/month/:monthNum/day/:dayNum' component={JournalEntry}/>
+        <Route path='/month/:monthNum/day/:dayNum' component={Note}/>
         <Route path='/month/:monthNum' component={Month}/>
         <Route path='/' component={ListOfMonths}/>
       </Switch>
