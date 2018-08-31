@@ -10,9 +10,6 @@ import Note from './Note'
 import '../styles/App.css';
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
-import { createStore } from 'redux';
-import { connect } from 'react-redux'
-
 class Log extends Component {
 
   constructor(props) {
@@ -112,25 +109,4 @@ class Log extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  //return { month: state.month }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-      decrementMonth : () => dispatch({
-        type : 'DECREMENT_MONTH'
-      }),
-      incrementMonth : () => dispatch({
-        type : 'INCREMENT_MONTH'
-      }),
-      setMonth : () => dispatch({
-        type : 'SET_MONTH'
-      })
-    }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Log);
+export default Log
