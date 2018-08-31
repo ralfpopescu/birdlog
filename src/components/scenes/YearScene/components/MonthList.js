@@ -6,7 +6,7 @@ import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom
 
 const numberOfRows = 4
 
-const MonthList = ({ onClick }) => {
+const MonthList = ({ handleMonthClick }) => {
   const monthButtons = []
   let monthRow = []
   let i = 0
@@ -14,7 +14,7 @@ const MonthList = ({ onClick }) => {
   while(i < 12) {
     for(let j = 0; j < 12/numberOfRows; j++){
       let link = `/month/${i + 1}`
-      let linkComp = <Link to={link}><MonthButton month = {months[i]} click={(i) => onClick(i)}></MonthButton></Link>
+      let linkComp = <Link to={link}><MonthButton month = {months[i]} onClick={() => handleMonthClick(i)}></MonthButton></Link>
       monthRow.push(linkComp)
       i = i + 1
       }

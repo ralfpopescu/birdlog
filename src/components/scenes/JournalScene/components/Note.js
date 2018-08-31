@@ -5,8 +5,8 @@ import Text from '../../../componentLibrary/Text'
 import { months } from '../../../../services/dataModels'
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
-const Note = (props) => {
-  const dateText = `${months[props.match.params.monthNum - 1]} ${props.match.params.dayNum}`
+const Note = ({ month, day }) => {
+  const dateText = `${months[month - 1]} ${day}`
   const Title = () => <Text text = {dateText} />
 
   const TextArea = styled.textarea`

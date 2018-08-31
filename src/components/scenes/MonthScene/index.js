@@ -5,21 +5,25 @@ import Text from '../../componentLibrary/Text'
 import Month from './components/Month'
 import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom'
 
-const PrevButton = ({ month }) => {
-  const prevLink = `/month/${month - 1}`
-  return <Link to={prevLink}><Button onClick={() => {this.handlePrevNextClick(month - 1)}}>next</Button></Link>
-}
-
-const NextButton = ({ month }) => {
-  const nextLink = `/month/${month + 1}`
-  return <Link to={nextLink}> <Button onClick={() => {this.handlePrevNextClick(month + 1)}}>next</Button></Link>
-}
-
-const PrevNext = ({ month }) => {
+const PrevNext = ({ month, handlePrevNextClick }) => {
+  let prevMonth = month
+  if (prevMonth <= 1) {
+    prevMonth = 12
+  } else {
+    prevMonth = month - 1
+  }
+  let nextMonth = month
+  if (nextMonth >= 12) {
+    nextMonth = 1
+  } else {
+    nextMonth = month - 0 + 1
+  }
+  const prevLink = `/month/${prevMonth}`
+  const nextLink = `/month/${nextMonth}` //-0 converts to int
   return <StyledDiv float = {'center'}>
-    <PrevButton />
+    <Link to={prevLink}><Button onClick={() => {handlePrevNextClick(prevMonth)}}>prev</Button></Link>
     <Link to='/'><Button>back</Button></Link>
-    <NextButton />
+    <Link to={nextLink}> <Button onClick={() => {handlePrevNextClick(nextMonth)}}>next</Button></Link>
   </StyledDiv>
 }
 

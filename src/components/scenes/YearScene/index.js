@@ -2,12 +2,12 @@ import React from 'react'
 import MonthList from './components/MonthList'
 import Text from '../../componentLibrary/Text'
 
-const YearScene = ({ onClick }) => (
-  <React.Fragment>
+const YearScene = ({ handleMonthClick }) => {
+  return <React.Fragment>
     <Text text = {"BIRDLOG"}></Text>
-    <MonthList />
+    <MonthList handleMonthClick={handleMonthClick}/>
   </React.Fragment>
-)
+}
 
 
 export default YearScene

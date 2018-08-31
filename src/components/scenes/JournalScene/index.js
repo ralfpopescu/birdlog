@@ -12,11 +12,11 @@ const BackSubmit = ({ month }) => {
   </StyledDiv>
 }
 
-const JournalScene = ({ month }) => {
+const JournalScene = ({ month, day }) => (
   <React.Fragment>
-    <Note />
-    <BackSubmit />
+    <Note month={month} day={day}/>
+    <BackSubmit month={month}/>
   </React.Fragment>
-}
+)
 
 export default JournalScene
